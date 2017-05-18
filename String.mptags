@@ -1,0 +1,206 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.5.4	//
+!_TAG_REVISION_NAME	MCHPTags	//
+!_TAG_REVISION_VERSION	6.0.1	//
+ACK::1	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.h	33;"	d	line:33
+BITRATE::500000	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.h	45;"	d	line:45
+BOARD_NUM::2	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	56;"	d	line:56	file:
+BRP_VAL::((FCAN/(2*NTQ*BITRATE))-1)	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.h	47;"	d	line:47
+C1	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.c	303;"	l	line:303
+C2	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.c	304;"	l	line:304
+C3	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.c	305;"	l	line:305
+CAN_BUF_EMPTY::0x06	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.h	59;"	d	line:59
+CAN_BUF_FULL::0x05	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.h	58;"	d	line:58
+CAN_FILTERMASK2REG_EID0::(x)(x&0xFFFF)	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.h	81;"	d	line:81
+CAN_FILTERMASK2REG_EID1::(x)(((x&0x1FFC)<<3)|(x&0x3))	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.h	82;"	d	line:82
+CAN_FILTERMASK2REG_SID::(x)((x&0x07FF)<<5)	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.h	67;"	d	line:67
+CAN_FILTERSTD::(sid)(sid&0xFFF7)	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.h	75;"	d	line:75
+CAN_FILTERXTD::(sid)(sid|0x0008)	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.h	72;"	d	line:72
+CAN_FLAG	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	350;"	v	line:350
+CAN_FRAME_EXT::0x03	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.h	56;"	d	line:56
+CAN_FRAME_STD::0x04	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.h	57;"	d	line:57
+CAN_MSG_DATA::0x01	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.h	54;"	d	line:54
+CAN_MSG_RTR::0x02	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.h	55;"	d	line:55
+CAN_SETMIDE::(sid)(sid|0x0008)	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.h	69;"	d	line:69
+CLRWDT::{__asm__volatile("CLRWDT");}	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	25;"	d	line:25	file:
+COMM::LATCbits.LATC14	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	34;"	d	line:34	file:
+DATA::PORTGbits.RG3	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.h	20;"	d	line:20
+DELAY	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	94;"	f	line:94	signature:(unsigned int t)
+ECAN1MSGBUF	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.h	85;"	t	line:85
+ECAN1_MSG_BUF_LENGTH::4	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.h	51;"	d	line:51
+FAIL::LATDbits.LATD11	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	37;"	d	line:37	file:
+FCAN::20000000	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.h	44;"	d	line:44
+HUMI	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.h	34;"	e	line:34
+InitSCI	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\sci.c	9;"	f	line:9
+InitSCI	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\sci.h	1;"	p	line:1	signature:()
+InitTimer2	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\timer.c	32;"	f	line:32
+InitTimer2	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\timer.h	10;"	p	line:10	signature:()
+InitTimer6	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\timer.c	9;"	f	line:9
+InitTimer6	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\timer.h	7;"	p	line:7	signature:()
+MAIN_ID	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	55;"	v	line:55
+MEASURE_HUMI::0x05	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.h	42;"	d	line:42
+MEASURE_TEMP::0x03	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.h	41;"	d	line:41
+NTQ::20	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.h	46;"	d	line:46
+Nrest::LATFbits.LATF6	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	49;"	d	line:49	file:
+OSCCON	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	364;"	l	line:364
+RESET::0x1e	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.h	43;"	d	line:43
+SCK::LATGbits.LATG13	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\DS1302.h	1;"	d	line:1
+SCK::PORTGbits.RG2	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.h	22;"	d	line:22
+SDA::LATGbits.LATG12	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\DS1302.h	3;"	d	line:3
+STAT::LATDbits.LATD0	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	36;"	d	line:36	file:
+STATUS_REG_R::0x07	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.h	40;"	d	line:40
+STATUS_REG_W::0x06	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.h	39;"	d	line:39
+SWITCH1::PORTBbits.RB2	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	39;"	d	line:39	file:
+SWITCH2::PORTBbits.RB3	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	40;"	d	line:40	file:
+SWITCH3::PORTBbits.RB4	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	41;"	d	line:41	file:
+SWITCH4::PORTBbits.RB5	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	42;"	d	line:42	file:
+Slave_Message_Count	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	84;"	v	line:84
+StartTimer2	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\timer.c	42;"	f	line:42
+StartTimer2	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\timer.h	11;"	p	line:11	signature:()
+StartTimer6	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\timer.c	21;"	f	line:21
+StartTimer6	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\timer.h	8;"	p	line:8	signature:()
+StopTimer2	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\timer.c	49;"	f	line:49
+StopTimer2	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\timer.h	12;"	p	line:12	signature:()
+StopTimer6	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\timer.c	27;"	f	line:27
+StopTimer6	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\timer.h	9;"	p	line:9	signature:()
+T1	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.c	306;"	l	line:306
+T2	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.c	307;"	l	line:307
+TEMP	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.h	34;"	e	line:34
+TRIS_DATA::TRISGbits.TRISG3	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.h	21;"	d	line:21
+TRIS_SCK::TRISGbits.TRISG2	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.h	23;"	d	line:23
+Tick_40S	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	78;"	v	line:78
+UART1_Send	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	118;"	f	line:118	signature:(unsigned char str[], int len)
+UART2_Send	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	108;"	f	line:108	signature:(unsigned char str[], int len)
+UART_Timeout	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	157;"	l	line:157
+UART_Timeout	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	203;"	l	line:203
+WORK::LATCbits.LATC13	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	35;"	d	line:35	file:
+_C1Interrupt	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	307;"	f	line:307	signature:(void)
+_T6Interrupt	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	129;"	f	line:129	signature:(void)
+_U1RXInterrupt	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	153;"	f	line:153	signature:(void)
+_U2RXInterrupt	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	201;"	f	line:201	signature:(void)
+__ecan_H	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.h	41;"	d	line:41
+_collect_h	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.h	2;"	d	line:2
+buffer	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.h	97;"	m	line:97
+buffer_status	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.h	91;"	m	line:91
+calc_sth11	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.c	301;"	f	line:301	signature:(float *p_humidity ,float *p_temperature)
+calc_sth11	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.h	53;"	p	line:53	signature:(float *p_humidity ,float *p_temperature)
+canRxMessage	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	89;"	v	line:89
+canTxMessage	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	88;"	v	line:88
+checksum	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	361;"	l	line:361
+clearRxFlags	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.c	254;"	f	line:254	signature:(unsigned char buffer_number)
+clearRxFlags	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.h	110;"	p	line:110	signature:(unsigned char buffer_number)
+count_rx	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	60;"	v	line:60
+d_h	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.c	254;"	l	line:254
+d_l	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.c	254;"	l	line:254
+dat	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	205;"	l	line:205
+data	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.h	101;"	m	line:101
+data	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	156;"	l	line:156
+data_length	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.h	102;"	m	line:102
+ds1302_bcd2asc	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\DS1302.h	17;"	p	line:17	signature:(unsigned char temp)
+ds1302_charger_add::0x90	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\DS1302.h	6;"	d	line:6
+ds1302_clkburst_add::0xbe	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\DS1302.h	7;"	d	line:7
+ds1302_control_add::0x8e	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\DS1302.h	5;"	d	line:5
+ds1302_init	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\DS1302.h	19;"	p	line:19	signature:(void)
+ds1302_ram_add::0xc0	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\DS1302.h	8;"	d	line:8
+ds1302_read_byte	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\DS1302.h	15;"	p	line:15	signature:(unsigned char address)
+ds1302_read_time	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\DS1302.h	18;"	p	line:18	signature:(unsigned char shift_address)
+ds1302_write_byte	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\DS1302.h	13;"	p	line:13	signature:(unsigned char address, unsigned char tmp)
+ds1302_write_time	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\DS1302.h	16;"	p	line:16	signature:(unsigned char shift_address, unsigned char time_data)
+ecan1msgBuf	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	90;"	v	line:90
+error	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.c	109;"	l	line:109
+error	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.c	220;"	l	line:220
+error	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.c	235;"	l	line:235
+error	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.c	245;"	l	line:245
+error	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.c	255;"	l	line:255
+error	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	361;"	l	line:361
+error	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	551;"	l	line:551
+fen	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	159;"	l	line:159
+flag_ascii_or_bin	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	67;"	v	line:67
+frame_type	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.h	95;"	m	line:95
+freq	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	69;"	v	line:69
+humi_val_i	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	360;"	l	line:360
+i	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.c	109;"	l	line:109
+i	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.c	163;"	l	line:163
+i	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.c	256;"	l	line:256
+i	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.c	78;"	l	line:78
+i	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	110;"	l	line:110
+i	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	120;"	l	line:120
+i	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	158;"	l	line:158
+i	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	204;"	l	line:204
+i	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	354;"	l	line:354
+i	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	96;"	l	line:96
+id	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.c	166;"	l	line:166
+id	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.h	100;"	m	line:100
+ide	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.c	164;"	l	line:164
+initDMAECAN	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.c	410;"	f	line:410	signature:(void)
+initDMAECAN	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.h	108;"	p	line:108	signature:(void)
+initECAN	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.c	281;"	f	line:281	signature:(void)
+initECAN	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.h	106;"	p	line:106	signature:(void)
+initial	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	359;"	l	line:359
+j	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	355;"	l	line:355
+j	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	96;"	l	line:96
+k	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	355;"	l	line:355
+lq	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	69;"	v	line:69
+m	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	356;"	l	line:356
+mID	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.h	103;"	t	line:103
+main	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	351;"	f	line:351
+message_type	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.h	93;"	m	line:93
+miao	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	159;"	l	line:159
+n	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	356;"	l	line:356
+nRST::LATGbits.LATG14	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\DS1302.h	2;"	d	line:2
+nian	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	159;"	l	line:159
+noACK::0	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.h	32;"	d	line:32
+p	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	353;"	l	line:353
+q	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	355;"	l	line:355
+read8bit	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\DS1302.h	14;"	p	line:14	signature:()
+read_temp	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	362;"	l	line:362
+receive_buf	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	206;"	l	line:206
+rh	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.c	308;"	l	line:308
+rh_lin	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.c	310;"	l	line:310
+rh_true	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.c	311;"	l	line:311
+ri	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	159;"	l	line:159
+rtr	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.c	165;"	l	line:165
+rxECAN	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.c	162;"	f	line:162	signature:(mID *message)
+rxECAN	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.h	109;"	p	line:109	signature:(mID *message)
+s	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	357;"	l	line:357
+s_connectionreset	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.c	76;"	f	line:76	signature:(void)
+s_connectionreset	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.h	48;"	p	line:48	signature:(void)
+s_measure	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.c	252;"	f	line:252	signature:(unsigned char *p_value, unsigned char *p_checksum, unsigned char mode)
+s_measure	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.h	52;"	p	line:52	signature:(unsigned char *p_value, unsigned char *p_checksum, unsigned char mode)
+s_read_byte	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.c	161;"	f	line:161	signature:(unsigned char ack)
+s_read_byte	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.h	46;"	p	line:46	signature:(unsigned char ack)
+s_read_statusreg	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.c	233;"	f	line:233	signature:(unsigned char *p_value, unsigned char *p_checksum)
+s_read_statusreg	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.h	50;"	p	line:50	signature:(unsigned char *p_value, unsigned char *p_checksum)
+s_softreset	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.c	218;"	f	line:218	signature:(void)
+s_softreset	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.h	49;"	p	line:49	signature:(void)
+s_transstart	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.c	18;"	f	line:18	signature:(void)
+s_transstart	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.h	47;"	p	line:47	signature:(void)
+s_write_byte	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.c	107;"	f	line:107	signature:(unsigned char value)
+s_write_byte	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.h	45;"	p	line:45	signature:(unsigned char value)
+s_write_statusreg	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.c	243;"	f	line:243	signature:(unsigned char *p_value)
+s_write_statusreg	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.h	51;"	p	line:51	signature:(unsigned char *p_value)
+sendECAN	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.c	72;"	f	line:72	signature:(mID *message)
+sendECAN	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.h	107;"	p	line:107	signature:(mID *message)
+send_ascii	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	65;"	v	line:65
+send_data	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	64;"	v	line:64
+shi	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	159;"	l	line:159
+start_judge	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	199;"	v	line:199
+t	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.c	309;"	l	line:309
+t_C	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.c	312;"	l	line:312
+temp	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	73;"	v	line:73
+temp1	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	358;"	l	line:358
+temp_freq	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	71;"	v	line:71
+temp_val_i	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	360;"	l	line:360
+uart1_enable	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	82;"	v	line:82
+uart2_enable	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	81;"	v	line:81
+val	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\collect.c	163;"	l	line:163
+word0	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.c	74;"	l	line:74
+word1	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.c	75;"	l	line:75
+word2	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\ecan.c	76;"	l	line:76
+work_enable	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	80;"	v	line:80
+write8bit	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\DS1302.h	12;"	p	line:12	signature:(unsigned char input)
+yue	C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\main.c	159;"	l	line:159
