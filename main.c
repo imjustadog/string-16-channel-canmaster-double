@@ -52,8 +52,8 @@ _FPOR(0xE7);
 MIAN_ID与IP地址的最后两位对应
 **********/
 
-unsigned char MAIN_ID=1;
-#define BOARD_NUM 4 // Number of board
+unsigned char MAIN_ID = 5;
+#define BOARD_NUM 2 // Number of board
 
 //ooo1234567
 
@@ -66,15 +66,10 @@ char send_ascii[250];
 
 char flag_ascii_or_bin = 'b';
 
-unsigned int freq[BOARD_NUM][9],lq; 
-//unsigned int temp[BOARD_NUM][9];
-unsigned int temp_freq[8];	
- 			  
-unsigned int temp[BOARD_NUM][8]; // Temperature
- 
- 
-
- 
+unsigned int freq[BOARD_NUM][8][5];  			  
+unsigned int temp[BOARD_NUM][8][5];
+unsigned int freq_temp = 0;
+  
 int Tick_40S=0; // 用来记录定时中断次数
  
 unsigned char work_enable = 0;//采集模块工作使能位
@@ -130,14 +125,23 @@ void __attribute__((interrupt,no_auto_psv)) _T6Interrupt(void)  // 0.8s interrup
 {
 	IFS2bits.T6IF = 0;
 	FAIL = ~FAIL;
+	WORK = FAIL;
 	Tick_40S++;//加一次是0.8s
 	if(Tick_40S > 2714) //36min
 	{
-		InitSCI();
- 		Nrest=0;
-		DELAY(1000);
-		Nrest=1;		
+	    Nrest=1;	
 		Tick_40S = 0;
+	}
+	else if(Tick_40S == 2712)
+	{
+		Nrest=0;
+	}
+	else if(Tick_40S == 2363) //31.5min
+	{
+		InitSCI();
+		work_enable = 1;
+		uart2_enable = 1;
+		uart1_enable = 1;				
 	}
 }
 
@@ -237,12 +241,13 @@ void __attribute__((interrupt,no_auto_psv)) _U2RXInterrupt(void)
 				UART_Timeout = 0;
 			}	
 			start_judge = 0; 
-			if((i==16)&&(receive_buf[2]==0X01)&&(receive_buf[3]==0X02)) 
+			if((i==4)&&(receive_buf[1]==0X88)&&(receive_buf[2]==0X88)) 
 			{	
 				work_enable = 1;//握手指令中的ID与箱号一致时，才会开启该采集箱激频拾频
 				uart2_enable =1;
 				flag_ascii_or_bin = 'b';
 				count_rx = 0;	
+				Tick_40S = 0;
 			}
 		}
 		
@@ -350,10 +355,10 @@ int main()
 	int p;
 	int i = 1000; // 扫频频率 473Hz~7.042kHz
 	int k,j,q;
-	int n,m;
+	int n,m,w,v,x;
 	int s=0;
 	int temp1;
-	unsigned char initial[20];
+	unsigned int mid_temp;;
     unsigned int humi_val_i,temp_val_i;
 	unsigned char error,checksum;
     unsigned char read_temp;
@@ -407,7 +412,6 @@ int main()
 
     //MAIN_ID = SWITCH1 + (SWITCH2<<1) + (SWITCH3<<2) + (SWITCH4<<3);    
 	//sprintf(initial,"main id is %d",MAIN_ID);
-    UART2_Send("restart",7);
 
 	while(1)
 	{
@@ -425,17 +429,14 @@ int main()
 			U2STAbits.OERR = 0;
         }
 		
-        if(count_rx > 60)
-        {
-           InitSCI();
-           count_rx = 0;
-        }
-		
-		if(work_enable ==1) 
+		if(work_enable == 1) 
 		{
-			STAT=1;
+			COMM=1;
+
+			for(w = 0; w < 5; w ++)
+			{
 	 
-			{	CLRWDT
+				CLRWDT
                			
 				canTxMessage.message_type=CAN_MSG_DATA;		
 				canTxMessage.frame_type=CAN_FRAME_STD;
@@ -455,172 +456,180 @@ int main()
 
              	DELAY(60000);  // 600~9ms	
              	DELAY(60000);  // 600~9ms	
-           }
 
 
-			for(n=0;n<BOARD_NUM;n++)//获取slave的采集数据
-			{	  
-
-                			
-
-			    DELAY(800);  // 600~9ms
-	
-				CLRWDT
-				canTxMessage.message_type=CAN_MSG_DATA;		
-				canTxMessage.frame_type=CAN_FRAME_STD;
-				canTxMessage.buffer=0;
-				canTxMessage.id=(0x002|(n+1)<<4);
-				canTxMessage.data[0]=0x01;
-				canTxMessage.data[1]=0x02;
-				canTxMessage.data[2]=0x03;
-				canTxMessage.data[3]=0x04;
-				canTxMessage.data[4]=0x05;
-				canTxMessage.data[5]=0x06;
-				canTxMessage.data[6]=0x07;
-				canTxMessage.data[7]=0x08;
-				canTxMessage.data_length=8;
-				sendECAN(&canTxMessage);//发送报文，指示第n+1块板子返回采集值
-				
-				Slave_Message_Count[n] = 0;
-				while(Slave_Message_Count[n]<4)  // 每个从板需要回复2帧
-				{
-					if(canRxMessage.buffer_status==CAN_BUF_FULL)
+				for(n=0;n<BOARD_NUM;n++)//获取slave的采集数据
+				{	  
+				    DELAY(800);  // 600~9ms
+					CLRWDT
+					canTxMessage.message_type=CAN_MSG_DATA;		
+					canTxMessage.frame_type=CAN_FRAME_STD;
+					canTxMessage.buffer=0;
+					canTxMessage.id=(0x002|(n+1)<<4);
+					canTxMessage.data[0]=0x01;
+					canTxMessage.data[1]=0x02;
+					canTxMessage.data[2]=0x03;
+					canTxMessage.data[3]=0x04;
+					canTxMessage.data[4]=0x05;
+					canTxMessage.data[5]=0x06;
+					canTxMessage.data[6]=0x07;
+					canTxMessage.data[7]=0x08;
+					canTxMessage.data_length=8;
+					sendECAN(&canTxMessage);//发送报文，指示第n+1块板子返回采集值
+					
+					Slave_Message_Count[n] = 0;
+					while(Slave_Message_Count[n]<4)  // 每个从板需要回复2帧
 					{
-				//		if(canRxMessage.buffer==(n+1))
+						if(canRxMessage.buffer_status==CAN_BUF_FULL)
 						{
 							rxECAN(&canRxMessage);
 							canRxMessage.buffer_status=CAN_BUF_EMPTY;
 							Slave_Message_Count[n]++;
 							if(canRxMessage.id == (0x001|(n+1)<<8))
 							{
-								freq[n][0] = ((unsigned int)(canRxMessage.data[0])<<8)+canRxMessage.data[1];
-								temp[n][0] = ((unsigned int)(canRxMessage.data[2])<<8)+canRxMessage.data[3];
-								freq[n][1] = ((unsigned int)(canRxMessage.data[4])<<8)+canRxMessage.data[5];
-								temp[n][1] = ((unsigned int)(canRxMessage.data[6])<<8)+canRxMessage.data[7];
+								freq[n][0][w] = ((unsigned int)(canRxMessage.data[0])<<8)+canRxMessage.data[1];
+								temp[n][0][w] = ((unsigned int)(canRxMessage.data[2])<<8)+canRxMessage.data[3];
+								freq[n][1][w] = ((unsigned int)(canRxMessage.data[4])<<8)+canRxMessage.data[5];
+								temp[n][1][w] = ((unsigned int)(canRxMessage.data[6])<<8)+canRxMessage.data[7];
 							}
 							else if(canRxMessage.id == (0x002|(n+1)<<8))
 							{
-								freq[n][2] = ((unsigned int)(canRxMessage.data[0])<<8)+canRxMessage.data[1];
-								temp[n][2] = ((unsigned int)(canRxMessage.data[2])<<8)+canRxMessage.data[3];
-								freq[n][3] = ((unsigned int)(canRxMessage.data[4])<<8)+canRxMessage.data[5];
-								temp[n][3] = ((unsigned int)(canRxMessage.data[6])<<8)+canRxMessage.data[7];
+								freq[n][2][w] = ((unsigned int)(canRxMessage.data[0])<<8)+canRxMessage.data[1];
+								temp[n][2][w] = ((unsigned int)(canRxMessage.data[2])<<8)+canRxMessage.data[3];
+								freq[n][3][w] = ((unsigned int)(canRxMessage.data[4])<<8)+canRxMessage.data[5];
+								temp[n][3][w] = ((unsigned int)(canRxMessage.data[6])<<8)+canRxMessage.data[7];
 							}
 							else if(canRxMessage.id == (0x003|(n+1)<<8))
 							{
-								freq[n][4] = ((unsigned int)(canRxMessage.data[0])<<8)+canRxMessage.data[1];
-								temp[n][4] = ((unsigned int)(canRxMessage.data[2])<<8)+canRxMessage.data[3];
-								freq[n][5] = ((unsigned int)(canRxMessage.data[4])<<8)+canRxMessage.data[5];
-								temp[n][5] = ((unsigned int)(canRxMessage.data[6])<<8)+canRxMessage.data[7];
+								freq[n][4][w] = ((unsigned int)(canRxMessage.data[0])<<8)+canRxMessage.data[1];
+								temp[n][4][w] = ((unsigned int)(canRxMessage.data[2])<<8)+canRxMessage.data[3];
+								freq[n][5][w] = ((unsigned int)(canRxMessage.data[4])<<8)+canRxMessage.data[5];
+								temp[n][5][w] = ((unsigned int)(canRxMessage.data[6])<<8)+canRxMessage.data[7];
 							}
 							else if(canRxMessage.id == (0x004|(n+1)<<8))
 							{
-								freq[n][6] = ((unsigned int)(canRxMessage.data[0])<<8)+canRxMessage.data[1];
-								temp[n][6] = ((unsigned int)(canRxMessage.data[2])<<8)+canRxMessage.data[3];
-								freq[n][7] = ((unsigned int)(canRxMessage.data[4])<<8)+canRxMessage.data[5];
-								temp[n][7] = ((unsigned int)(canRxMessage.data[6])<<8)+canRxMessage.data[7];
+								freq[n][6][w] = ((unsigned int)(canRxMessage.data[0])<<8)+canRxMessage.data[1];
+								temp[n][6][w] = ((unsigned int)(canRxMessage.data[2])<<8)+canRxMessage.data[3];
+								freq[n][7][w] = ((unsigned int)(canRxMessage.data[4])<<8)+canRxMessage.data[5];
+								temp[n][7][w] = ((unsigned int)(canRxMessage.data[6])<<8)+canRxMessage.data[7];
 							}
 						}
 					}
-
-
-				}
-
-
-            CAN_FLAG=1;
-			}//
-			
-	        CLRWDT
-
-        error=0;
-     	error+=s_measure((unsigned char*) &humi_val_i,&checksum,HUMI); 
-     	error+=s_measure((unsigned char*) &temp_val_i,&checksum,TEMP); 
-
-		if(error!=0)
-        	s_connectionreset(); 
-		else
-		{ 
-	    	error=0;
-		}
-
-        for(q = 0;q < BOARD_NUM/2 ; q ++)
-		{
-
-			send_data[0]='S';
-			send_data[1]=1;
-			send_data[2]=2;	
-	
-			send_data[3] = 3;
-			send_data[4] =4;
-			send_data[5] = 5;
-			send_data[6] = 6;
-			send_data[7] = MAIN_ID + q;
-	        s=8;
-			for(m=0;m<2;m++)
-			{   
-                send_data[s]=m;s++;
-				for(n=0;n<8;n++)
-				{
-					send_data[s] = freq[m + q * 2][n]>>8;s++;
-					send_data[s] = freq[m + q * 2][n];s++;
-					send_data[s] = temp[m + q * 2][n]>>8;s++; 
-				    send_data[s] = temp[m + q * 2][n];s++;					
-	
-				}
-			}
-
-			send_data[s] = 0x00;s++;
-			send_data[s] = 0x00;s++;
-
-			send_data[s] = humi_val_i>>8;s++;
-			send_data[s] = humi_val_i;s++;
-			
-			send_data[s] = temp_val_i>>8;s++;
-			send_data[s] =temp_val_i;s++;
-			
-			send_data[s]=  'E';s++;
-			
-			if((flag_ascii_or_bin == 'a')||(flag_ascii_or_bin == 'b')) 
-			{
-				for(p = 0;p < s;p ++)
-				{
-					sprintf(&send_ascii[p * 2],"%02x",send_data[p]);
+	            	CAN_FLAG=1;
 				}	
-			}	
-		    
-		    if(flag_ascii_or_bin == 'a') 
-			{
-				if(uart2_enable ==1)
-				{
-					UART2_Send(send_ascii,s * 2);
-				}
-				if(uart1_enable ==1)
-   	        	{
-   	        		UART1_Send(send_ascii,s * 2);
-   	        	}	
+		        CLRWDT
 			}
 			
-			else if(flag_ascii_or_bin == 'b') 
+			for(n = 0;n < BOARD_NUM; n ++)
 			{
-				if(uart2_enable ==1)
+				for(v = 0;v < 8;v ++)
 				{
-					UART2_Send(send_data,s);
+					for(w = 0;w < 4;w ++)
+					{
+						for(x = w + 1;x < 5;x ++)
+						{
+							if(freq[n][v][x] < freq[n][v][w])
+							{
+								freq_temp = freq[n][v][w];
+								freq[n][v][w] = freq[n][v][x];
+								freq[n][v][x] = freq_temp;
+							}
+ 						}
+					}
 				}
-				if(uart1_enable ==1)
-   	        	{
-   	        		UART1_Send(send_data,s);
-   	        	}	
 			}
 
-            DELAY(6000);
-		}
+	        error=0;
+	     	error+=s_measure((unsigned char*) &humi_val_i,&checksum,HUMI); 
+	     	error+=s_measure((unsigned char*) &temp_val_i,&checksum,TEMP); 
+	
+			if(error!=0)
+	        	s_connectionreset(); 
+			else
+			{ 
+		    	error=0;
+			}
 
-			STAT=0;	
-            COMM=~COMM;		
+			COMM=0;	
+            STAT=~STAT;		
  	
 			work_enable = 0;
-			uart2_enable =0;
-			uart1_enable =0;
-		}		
+
+			if((uart1_enable ==1) || (uart2_enable == 1))
+			{
+		    	for(q = 0;q < BOARD_NUM/2 ; q ++)
+				{
+		
+					send_data[0]='S';
+					send_data[1]=1;
+					send_data[2]=2;	
+			
+					send_data[3] = 3;
+					send_data[4] =4;
+					send_data[5] = 5;
+					send_data[6] = 6;
+					send_data[7] = MAIN_ID + q;
+			        s=8;
+					for(m=0;m<2;m++)
+					{   
+		                send_data[s]=m;s++;
+						for(n=0;n<8;n++)
+						{
+							send_data[s] = freq[m + q * 2][n][2]>>8;s++;
+							send_data[s] = freq[m + q * 2][n][2];s++;
+							send_data[s] = temp[m + q * 2][n][2]>>8;s++; 
+						    send_data[s] = temp[m + q * 2][n][2];s++;					
+			
+						}
+					}
+		
+					send_data[s] = 0x00;s++;
+					send_data[s] = 0x00;s++;
+		
+					send_data[s] = humi_val_i>>8;s++;
+					send_data[s] = humi_val_i;s++;
+					
+					send_data[s] = temp_val_i>>8;s++;
+					send_data[s] =temp_val_i;s++;
+					
+					send_data[s]=  'E';s++;
+					
+					if(flag_ascii_or_bin == 'a') 
+					{
+						for(p = 0;p < s;p ++)
+						{
+							sprintf(&send_ascii[p * 2],"%02x",send_data[p]);
+						}
+						if(uart2_enable ==1)
+						{
+							UART2_Send(send_ascii,s * 2);
+						}
+						if(uart1_enable ==1)
+		   	        	{
+		   	        		UART1_Send(send_ascii,s * 2);
+		   	        	}	
+					}	
+				    
+					else
+					{
+						if(uart2_enable ==1)
+						{
+							UART2_Send(send_data,s);
+						}
+						if(uart1_enable ==1)
+		   	        	{
+		   	        		UART1_Send(send_data,s);
+		   	        	}	
+					}
+		            DELAY(6000);
+					CLRWDT
+				}
+				uart2_enable =0;
+				uart1_enable =0;
+			}
+
+		}
+
 	}
 	
 	return 0;

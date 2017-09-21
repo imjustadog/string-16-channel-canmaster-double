@@ -1,0 +1,6 @@
+
+*.o
+main.o
+timer.o
+collect.o
+ecan.o

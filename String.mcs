@@ -262,6 +262,71 @@ ToolArgsString=-g -Wall
 TraceCmdString=
 DebugOptions=
 [File020]
+Location=C:\Users\zwq\Desktop\hongfu\centre\can16masterdouble\main.o
+Folder=Intermediary
+DeviceName=dsPIC33FJ64GP706
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|timer.c|sci.c|ecan.c|collect.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=
+[File021]
+Location=C:\Users\zwq\Desktop\hongfu\centre\can16masterdouble\timer.o
+Folder=Intermediary
+DeviceName=dsPIC33FJ64GP706
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|timer.c|sci.c|ecan.c|collect.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=
+[File022]
+Location=C:\Users\zwq\Desktop\hongfu\centre\can16masterdouble\sci.o
+Folder=Intermediary
+DeviceName=dsPIC33FJ64GP706
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|timer.c|sci.c|ecan.c|collect.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=
+[File023]
+Location=C:\Users\zwq\Desktop\hongfu\centre\can16masterdouble\ecan.o
+Folder=Intermediary
+DeviceName=dsPIC33FJ64GP706
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|timer.c|sci.c|ecan.c|collect.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=
+[File024]
+Location=C:\Users\zwq\Desktop\hongfu\centre\can16masterdouble\collect.o
+Folder=Intermediary
+DeviceName=dsPIC33FJ64GP706
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|timer.c|sci.c|ecan.c|collect.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=
+[File025]
 Location=C:\Users\Administrator\Desktop\main_later - with reinit uart with reset\String.cof
 Folder=Output
 DeviceName=dsPIC33FJ64GP706
@@ -274,7 +339,7 @@ SuiteArgsString=
 ToolArgsString=-Map="$(BINDIR_)$(TARGETBASE).map" --report-mem -o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)"
 TraceCmdString=
 DebugOptions=
-[File021]
+[File026]
 Location=C:\Users\Administrator\Desktop\main_later - with reinit uart with reset\String.hex
 Folder=Output
 DeviceName=dsPIC33FJ64GP706
@@ -287,7 +352,7 @@ SuiteArgsString=
 ToolArgsString=-Map="$(BINDIR_)$(TARGETBASE).map" --report-mem -o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)"
 TraceCmdString=
 DebugOptions=
-[File022]
+[File027]
 Location=C:\Users\zwq\Desktop\main_later - with reinit uart with reset\String.cof
 Folder=Output
 DeviceName=dsPIC33FJ64GP706
@@ -300,7 +365,7 @@ SuiteArgsString=
 ToolArgsString=-Map="$(BINDIR_)$(TARGETBASE).map" --report-mem -o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)"
 TraceCmdString=
 DebugOptions=
-[File023]
+[File028]
 Location=C:\Users\zwq\Desktop\main_later - with reinit uart with reset\String.hex
 Folder=Output
 DeviceName=dsPIC33FJ64GP706
@@ -313,7 +378,7 @@ SuiteArgsString=
 ToolArgsString=-Map="$(BINDIR_)$(TARGETBASE).map" --report-mem -o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)"
 TraceCmdString=
 DebugOptions=
-[File024]
+[File029]
 Location=C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\String.cof
 Folder=Output
 DeviceName=dsPIC33FJ64GP706
@@ -326,7 +391,7 @@ SuiteArgsString=
 ToolArgsString=-Map="$(BINDIR_)$(TARGETBASE).map" --report-mem -o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)"
 TraceCmdString=
 DebugOptions=
-[File025]
+[File030]
 Location=C:\Users\zwq\Desktop\main_doublelayer - with reinit uart with reset\String.hex
 Folder=Output
 DeviceName=dsPIC33FJ64GP706
@@ -339,7 +404,7 @@ SuiteArgsString=
 ToolArgsString=-Map="$(BINDIR_)$(TARGETBASE).map" --report-mem -o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)"
 TraceCmdString=
 DebugOptions=
-[File026]
+[File031]
 Location=C:\Users\zwq\Desktop\can16masterdouble\String.cof
 Folder=Output
 DeviceName=dsPIC33FJ64GP706
@@ -352,8 +417,34 @@ SuiteArgsString=
 ToolArgsString=-Map="$(BINDIR_)$(TARGETBASE).map" --report-mem -o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)"
 TraceCmdString=
 DebugOptions=
-[File027]
+[File032]
 Location=C:\Users\zwq\Desktop\can16masterdouble\String.hex
+Folder=Output
+DeviceName=dsPIC33FJ64GP706
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={433C3D55-811D-409D-A6BF-159CF9355B42}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-ld.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|timer.c|sci.c|ecan.c|collect.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-Map="$(BINDIR_)$(TARGETBASE).map" --report-mem -o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)"
+TraceCmdString=
+DebugOptions=
+[File033]
+Location=C:\Users\zwq\Desktop\hongfu\centre\can16masterdouble\String.cof
+Folder=Output
+DeviceName=dsPIC33FJ64GP706
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={433C3D55-811D-409D-A6BF-159CF9355B42}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-ld.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|timer.c|sci.c|ecan.c|collect.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-Map="$(BINDIR_)$(TARGETBASE).map" --report-mem -o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)"
+TraceCmdString=
+DebugOptions=
+[File034]
+Location=C:\Users\zwq\Desktop\hongfu\centre\can16masterdouble\String.hex
 Folder=Output
 DeviceName=dsPIC33FJ64GP706
 LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
